@@ -1,0 +1,67 @@
+.btn-danger {
+  background: grey;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  background: red !important;
+}
+.btn-green {
+  background: grey;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  background: green !important;
+}
+.btn-element {
+  background: grey;
+  border: 1px solid red;
+  background: red;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background: blue !important;
+  background: yellow !important;
+  background: red !important;
+}
+.btn-danger {
+  background: "#ff0";
+}
+.grid .grid-cols-1 {
+  width: 0.25rem;
+}
+.grid .grid-cols-2 {
+  width: 0.5rem;
+}
+.grid .grid-cols-3 {
+  width: 0.75rem;
+}
+.grid .grid-cols-4 {
+  width: 1rem;
+}
+.grid .grid-cols-5 {
+  width: 1.25rem;
+}
+.grid .grid-cols-6 {
+  width: 1.5rem;
+}
+.grid .grid-cols-7 {
+  width: 1.75rem;
+}
+.grid .grid-cols-8 {
+  width: 2rem;
+}
+.grid .grid-cols-9 {
+  width: 2.25rem;
+}
+.grid .grid-cols-10 {
+  width: 2.5rem;
+}
+.grid .grid-cols-11 {
+  width: 2.75rem;
+}
+.grid .grid-cols-12 {
+  width: 3rem;
+}
+.btn-special {
+  background: #ff8000;
+}

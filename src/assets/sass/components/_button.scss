@@ -1,0 +1,31 @@
+// teknik penamaan
+// - element
+// -- modifier
+
+// CONTOH:
+
+// .btn-danger{
+//   background: $color-red;
+// }
+
+// .byn--hidden{
+//   display: none;
+// }
+
+// .btn{
+//   &-danger{
+
+//   }
+
+//   &-success{
+//     background: #64e686;
+//   }
+
+//   &--visible{
+//     display: block;
+//   }
+
+//   &--hidden{
+//     display: none;
+//   }
+// }

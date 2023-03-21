@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user{
+  id Int @id @default(autoincrement())
+  username String @db.VarChar(100)
+  email String @unique @db.VarChar(255)
+  password String @db.VarChar(255)
+  createdAt DateTime? @default(now()) @db.Timestamp(0)
+  updatedAt DateTime? @default(now()) @db.Timestamp(0)
+  salt String @db.VarChar(255)
+
+  @@index([id], map: "index_user_id")
+}
+
+model product{
+  id Int @id @default(autoincrement())
+  name String
+  description String? @db.LongText
+  price BigInt? @default(0)
+  images product_images[]
+  taxonomy product_taxonomy[]
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+  deletedAt DateTime? 
+}
+
+model product_images{
+  id Int @id @default(autoincrement())
+  productId Int
+  filename String?
+  prefix String?
+  destination String?
+  product product @relation(fields: [productId], references: [id])
+
+  @@index([id], map: "index_product_images_id")
+  @@index([productId], map: "product_images_productId_fk")
+}
+
+model product_taxonomy{
+  id Int @id @default(autoincrement())
+  productId Int
+  taxonomyId Int
+
+  product product @relation(fields: [productId], references: [id])
+  taxonomies taxonomy @relation(fields: [taxonomyId], references: [id])
+
+  @@index([id], map:"prodct_taxonomy_id")
+  @@index([productId], map: "product_taxonomy_productId_fk")
+  @@index([taxonomyId], map: "product_taxonomy_taxonomyId_fk")
+}
+
+model taxonomy {
+  id Int @id @default(autoincrement())
+  name String?
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+  products product_taxonomy[]
+}

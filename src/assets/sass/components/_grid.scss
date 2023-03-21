@@ -1,0 +1,9 @@
+$length-grid: 12;
+
+.grid{
+  @for $i from 1 through $length-grid{
+    .grid-cols-#{$i}{
+      width: 0.25rem * $i;
+    }
+  }
+}
